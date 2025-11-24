@@ -59,6 +59,27 @@
       ]
     },
     {
+      "name": "autocomplete",
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "An input component with autocomplete suggestions.",
+      "registryDependencies": ["input"],
+      "files": [
+        {
+          "path": "src/lib/components/ui/autocomplete/autocomplete.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/autocomplete/autocomplete-highlight.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/autocomplete/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "bottom-nav",
       "type": "registry:ui",
       "title": "Bottom Navigation",

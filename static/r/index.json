@@ -23,6 +23,16 @@
 		"relativeUrl": "image-zoom.json"
 	},
 	{
+		"name": "autocomplete",
+		"title": "Autocomplete",
+		"type": "registry:ui",
+		"description": "An input component with autocomplete suggestions.",
+		"registryDependencies": [
+			"input"
+		],
+		"relativeUrl": "autocomplete.json"
+	},
+	{
 		"name": "bottom-nav",
 		"title": "Bottom Navigation",
 		"type": "registry:ui",
