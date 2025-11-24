@@ -104,21 +104,23 @@
                             </h4>
 
                             <div class="grid grid-flow-row auto-rows-max text-sm">
-                                {#each group.links as link}
-                                    {@const Icon = link.icon}
-                                    {@const isActive = page.url.pathname.endsWith(link.href)}
-                                    {#if isActive}
-                                        <Button href={link.href} variant="ghost" class="justify-start text-base flex items-center h-11 bg-accent">
-                                            <Icon class="size-4"/>
-                                            {link.label}
-                                        </Button>
-                                    {:else}
-                                        <Button href={link.href} variant="ghost" class="justify-start text-base text-muted-foreground flex items-center h-11">
-                                            <Icon class="size-4"/>
-                                            {link.label}
-                                        </Button>
-                                    {/if}
-                                {/each}
+                                {#if browser}
+                                    {#each group.links as link}
+                                        {@const Icon = link.icon}
+                                        {@const isActive = page.url.pathname.endsWith(link.href)}
+                                        {#if isActive}
+                                            <Button href={link.href} variant="ghost" class="justify-start text-base flex items-center h-11 bg-accent">
+                                                <Icon class="size-4"/>
+                                                {link.label}
+                                            </Button>
+                                        {:else}
+                                            <Button href={link.href} variant="ghost" class="justify-start text-base text-muted-foreground flex items-center h-11">
+                                                <Icon class="size-4"/>
+                                                {link.label}
+                                            </Button>
+                                        {/if}
+                                    {/each}
+                                {/if}
                             </div>
                         </div>
                     {/each}
