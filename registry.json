@@ -214,6 +214,23 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "video",
+      "type": "registry:ui",
+      "title": "Video",
+      "description": "A responsive video player with controls and progress bar.",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/lib/components/ui/video/video.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/video/index.ts",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

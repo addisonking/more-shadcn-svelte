@@ -16,7 +16,7 @@
         PanelBottomClose,
         PhoneCall,
         GithubIcon,
-        SearchIcon, ImagePlus, Book,
+        SearchIcon, ImagePlus, Book, SquarePlay,
     } from "lucide-svelte";
     import { page } from '$app/state';
     import { goto } from "$app/navigation";
@@ -42,6 +42,7 @@
                 { href: "/components/stepper", label: "Stepper", icon: ArrowBigRightDash },
                 { href: "/components/shiny-button", label: "Shiny Button", icon: Sparkle },
                 { href: "/components/spotlight-card", label: "Spotlight Card", icon: Square },
+                { href: "/components/video", label: "Video", icon: SquarePlay },
                 { href: "/components/walkthrough", label: "Walkthrough", icon: Footprints },
             ]
         }

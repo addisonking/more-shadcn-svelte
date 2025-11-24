@@ -99,5 +99,15 @@
 			"button"
 		],
 		"relativeUrl": "stepper.json"
+	},
+	{
+		"name": "video",
+		"title": "Video",
+		"type": "registry:ui",
+		"description": "A responsive video player with controls and progress bar.",
+		"registryDependencies": [
+			"button"
+		],
+		"relativeUrl": "video.json"
 	}
 ]
