@@ -1,3 +1,3 @@
-import Video from "./Video.svelte";
+import Video from "./video.svelte";
 
 export { Video };

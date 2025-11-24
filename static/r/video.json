@@ -17,7 +17,7 @@
 			"target": "video/video.svelte"
 		},
 		{
-			"content": "import Video from \"./Video.svelte\";\r\n\r\nexport { Video };",
+			"content": "import Video from \"./video.svelte\";\r\n\r\nexport { Video };",
 			"type": "registry:ui",
 			"target": "video/index.ts"
 		}
