@@ -50,6 +50,12 @@
 </ImageZoom.Root>`} />
         </DocPage.Example>
 
+        <DocPage.Heading>Installation</DocPage.Heading>
+        {@const componentName = "image-zoom"}
+        <DocPage.Text>Run the following command to install the `{componentName}` components:</DocPage.Text>
+        <DocPage.PM command="execute" args={["shadcn-svelte@latest", "add", "https://more-shadcn.noair.fun/r/" + componentName + ".json"]} />
+
+
         <DocPage.Heading>Gallery View</DocPage.Heading>
         <DocPage.Text>
             Integrate multiple `ImageZoom.Trigger` components into a gallery or album layout to enable full-screen browsing.
