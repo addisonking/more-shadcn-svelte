@@ -116,5 +116,11 @@
 </Autocomplete>`} />
         </DocPage.Example>
 
+
+        <DocPage.Heading>Installation</DocPage.Heading>
+        {@const componentName = "autocomplete"}
+        <DocPage.Text>Run the following command to install the `{componentName}` components:</DocPage.Text>
+        <DocPage.PM command="execute" args={["shadcn-svelte@latest", "add", "https://more-shadcn.noair.fun/r/" + componentName + ".json"]} />
+
     </DocPage.Content>
 </DocPage.Root>
