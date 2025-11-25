@@ -9,6 +9,6 @@
 
 </script>
 
-<div class={cn("grid gap-0 w-full mt-8 mb-16", className)}>
+<div class={cn("grid gap-0 w-full max-w-3xl mt-8 mb-16", className)}>
     {@render children()}
 </div>

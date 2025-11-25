@@ -1,0 +1,19 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "cursor",
+	"title": "Cursor",
+	"type": "registry:ui",
+	"description": "A customizable cursor component.",
+	"files": [
+		{
+			"content": "<!-- $lib/components/ui/cursor/cursor.svelte -->\r\n<script lang=\"ts\">\r\n    import { cn } from '$UTILS$';\r\n    import type { Snippet } from 'svelte';\r\n\r\n    let {\r\n        x,\r\n        y,\r\n        color = '#000',\r\n        name,\r\n        message,\r\n        class: className,\r\n        children\r\n    }: {\r\n        x: number;\r\n        y: number;\r\n        color?: string;\r\n        name?: string;\r\n        message?: string;\r\n        class?: string;\r\n        children?: Snippet;\r\n    } = $props();\r\n</script>\r\n\r\n<div\r\n        class={cn(\r\n\t\t'pointer-events-none absolute left-0 top-0 z-50 transition-transform duration-100 ease-linear will-change-transform',\r\n\t\tclassName\r\n\t)}\r\n        style:transform={`translate3d(${x}px, ${y}px, 0)`}\r\n>\r\n    <!-- Mouse Arrow SVG -->\r\n    <svg\r\n            width=\"24\"\r\n            height=\"24\"\r\n            viewBox=\"0 0 24 24\"\r\n            fill=\"none\"\r\n            xmlns=\"http://www.w3.org/2000/svg\"\r\n            class=\"relative -top-[1px] -left-[1px] drop-shadow-sm\"\r\n    >\r\n        <path\r\n                d=\"M3 3L9.5 20.5L12.5 13.5L19.5 10.5L3 3Z\"\r\n                fill={color}\r\n                stroke={color}\r\n                stroke-width=\"1\"\r\n                stroke-linejoin=\"round\"\r\n        />\r\n    </svg>\r\n\r\n    <!-- Content Bubble -->\r\n    {#if name || message || children}\r\n        <div\r\n                class=\"absolute left-3.5 top-5 min-w-[max-content] rounded-xl rounded-tl-none px-3 py-1.5 shadow-sm animate-in fade-in zoom-in-95 duration-200\"\r\n                style:background-color={color}\r\n        >\r\n            <div class=\"flex flex-col text-xs leading-relaxed text-white\">\r\n                {#if name}\r\n                    <span class=\"font-bold\">{name}</span>\r\n                {/if}\r\n                {#if message}\r\n                    <span class=\"font-medium opacity-90\">{message}</span>\r\n                {/if}\r\n                {#if children}\r\n                    {@render children()}\r\n                {/if}\r\n            </div>\r\n        </div>\r\n    {/if}\r\n</div>",
+			"type": "registry:ui",
+			"target": "cursor/cursor.svelte"
+		},
+		{
+			"content": "import Cursor from \"./cursor.svelte\";\r\n\r\nexport { Cursor as Root };",
+			"type": "registry:ui",
+			"target": "cursor/index.ts"
+		}
+	]
+}

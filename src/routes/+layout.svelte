@@ -16,7 +16,8 @@
         PanelBottomClose,
         PhoneCall,
         GithubIcon,
-        SearchIcon, ImagePlus, Book, SquarePlay, Calendar, Palette,
+        SearchIcon, ImagePlus, Book, SquarePlay, Calendar, Palette, MousePointer2, RectangleHorizontal,
+        RectangleEllipsis,
     } from "lucide-svelte";
     import { page } from '$app/state';
     import { goto } from "$app/navigation";
@@ -36,7 +37,9 @@
             links: [
                 { href: "/components/autocomplete", label: "Autocomplete", icon: Book },
                 { href: "/components/bottom-nav", label: "Bottom Nav", icon: PanelBottomClose },
+                { href: "/components/chip", label: "Chip", icon: RectangleHorizontal },
                 { href: "/components/color-picker", label: "Color Picker", icon: Palette },
+                { href: "/components/cursor", label: "Cursor", icon: MousePointer2 },
                 { href: "/components/date-strip", label: "Date Strip", icon: Calendar },
                 { href: "/components/image-zoom", label: "Image Zoom", icon: ImagePlus },
                 { href: "/components/number-ticker", label: "Number Ticker", icon: ClockArrowUp },
@@ -44,6 +47,7 @@
                 { href: "/components/stepper", label: "Stepper", icon: ArrowBigRightDash },
                 { href: "/components/shiny-button", label: "Shiny Button", icon: Sparkle },
                 { href: "/components/spotlight-card", label: "Spotlight Card", icon: Square },
+                { href: "/components/tag-input", label: "Tag Input", icon: RectangleEllipsis },
                 { href: "/components/video", label: "Video", icon: SquarePlay },
                 { href: "/components/walkthrough", label: "Walkthrough", icon: Footprints },
             ]

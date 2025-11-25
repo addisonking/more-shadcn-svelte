@@ -20,7 +20,6 @@
     </DocPage.Header>
 
     <DocPage.Content>
-        <DocPage.Heading>Basic Usage</DocPage.Heading>
         <DocPage.Example>
             <DocPage.Preview class="py-10 flex flex-col items-center gap-4">
                 <ColorPicker.Root bind:value={color} formats={["hex"]}/>

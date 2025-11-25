@@ -67,6 +67,32 @@
 		"relativeUrl": "color-picker.json"
 	},
 	{
+		"name": "cursor",
+		"title": "Cursor",
+		"type": "registry:ui",
+		"description": "A customizable cursor component.",
+		"registryDependencies": [],
+		"relativeUrl": "cursor.json"
+	},
+	{
+		"name": "chip",
+		"title": "Chip",
+		"type": "registry:ui",
+		"description": "Compact element that represents an input, attribute, or action.",
+		"registryDependencies": [],
+		"relativeUrl": "chip.json"
+	},
+	{
+		"name": "tag-input",
+		"title": "Tag Input",
+		"type": "registry:ui",
+		"description": "An input field for entering multiple values, displayed as chips.",
+		"registryDependencies": [
+			"chip"
+		],
+		"relativeUrl": "tag-input.json"
+	},
+	{
 		"name": "number-ticker",
 		"title": "Number Ticker",
 		"type": "registry:ui",

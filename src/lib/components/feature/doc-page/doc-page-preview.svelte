@@ -10,7 +10,7 @@
 </script>
 
 <div class={cn("border-border border rounded-t-md w-full h-[450px] ", className)}>
-    <div class="w-full h-full flex justify-center items-center">
-    {@render children()}
-    </div>
+        <div class="w-full h-full flex justify-center items-center">
+            {@render children()}
+        </div>
 </div>

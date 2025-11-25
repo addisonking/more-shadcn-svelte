@@ -10,8 +10,10 @@
 
 </script>
 
-<div class={cn("", className)}>
-    <Code.Root lang="svelte" code={code} class="rounded-t-none border-t-0 bg-muted">
-        <Code.CopyButton />
-    </Code.Root>
-</div>
+<Code.Root
+        lang="svelte"
+        code={code}
+        class="rounded-t-none rounded-b-md border-t-0 w-full overflow-scroll bg-muted"
+>
+    <Code.CopyButton />
+</Code.Root>

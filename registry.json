@@ -143,6 +143,61 @@
       ]
     },
     {
+      "name": "cursor",
+      "type": "registry:ui",
+      "title": "Cursor",
+      "description": "A customizable cursor component.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/components/ui/cursor/cursor.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/cursor/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "description": "Compact element that represents an input, attribute, or action.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/components/ui/chip/chip.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/chip/chip-group.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/chip/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tag-input",
+      "type": "registry:ui",
+      "title": "Tag Input",
+      "description": "An input field for entering multiple values, displayed as chips.",
+      "registryDependencies": ["chip"],
+      "files": [
+        {
+          "path": "src/lib/components/ui/tag-input/tag-input.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/tag-input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "number-ticker",
       "type": "registry:ui",
       "title": "Number Ticker",

@@ -32,7 +32,6 @@
     </DocPage.Header>
 
     <DocPage.Content>
-        <DocPage.Heading>Basic Usage</DocPage.Heading>
         <DocPage.Example>
             <DocPage.Preview>
                 <div class="space-y-4">

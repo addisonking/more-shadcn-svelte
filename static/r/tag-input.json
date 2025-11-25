@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "tag-input",
+	"title": "Tag Input",
+	"type": "registry:ui",
+	"description": "An input field for entering multiple values, displayed as chips.",
+	"dependencies": [
+		"lucide-svelte@^0.554.0"
+	],
+	"registryDependencies": [
+		"chip"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\r\n    import { cn } from '$UTILS$';\r\n    import * as Chip from '$lib/components/ui/chip';\r\n    import { X } from 'lucide-svelte';\r\n\r\n    let {\r\n        tags = $bindable([]),\r\n        placeholder = 'Add tag...',\r\n        disabled = false,\r\n        maxTags,\r\n        class: className,\r\n        chipVariant = 'secondary', // default chip style\r\n        validate, // optional validation function (e.g. email only)\r\n        onadd,\r\n        onremove\r\n    }: {\r\n        tags: string[];\r\n        placeholder?: string;\r\n        disabled?: boolean;\r\n        maxTags?: number;\r\n        class?: string;\r\n        chipVariant?: 'default' | 'secondary' | 'outline' | 'ghost';\r\n        validate?: (tag: string) => boolean;\r\n        onadd?: (tag: string) => void;\r\n        onremove?: (tag: string) => void;\r\n    } = $props();\r\n\r\n    let inputValue = $state('');\r\n    let inputRef: HTMLInputElement | undefined = $state();\r\n\r\n    function addTag(text: string) {\r\n        const trimmed = text.trim();\r\n\r\n        // Validation checks\r\n        if (!trimmed) return;\r\n        if (tags.includes(trimmed)) return; // No duplicates\r\n        if (maxTags && tags.length >= maxTags) return;\r\n        if (validate && !validate(trimmed)) return;\r\n\r\n        tags = [...tags, trimmed];\r\n        inputValue = '';\r\n        onadd?.(trimmed);\r\n    }\r\n\r\n    function removeTag(index: number) {\r\n        const removed = tags[index];\r\n        tags = tags.filter((_, i) => i !== index);\r\n        onremove?.(removed);\r\n    }\r\n\r\n    function handleKeydown(e: KeyboardEvent) {\r\n        if (e.key === 'Enter' || e.key === ',') {\r\n            e.preventDefault();\r\n            addTag(inputValue);\r\n        } else if (e.key === 'Backspace' && inputValue === '' && tags.length > 0) {\r\n            // Remove last tag if input is empty\r\n            removeTag(tags.length - 1);\r\n        }\r\n    }\r\n\r\n    function handleContainerClick() {\r\n        inputRef?.focus();\r\n    }\r\n</script>\r\n\r\n<div\r\n        class={cn(\r\n\t\t'flex min-h-10 w-full flex-wrap items-center gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background',\r\n\t\t'focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2',\r\n\t\tdisabled && 'cursor-not-allowed opacity-50',\r\n\t\tclassName\r\n\t)}\r\n        onclick={handleContainerClick}\r\n        role=\"textbox\"\r\n        tabindex=\"-1\"\r\n        onkeydown={() => {}}\r\n>\r\n    <!-- Render Existing Tags -->\r\n    {#each tags as tag, i}\r\n        <Chip.Root\r\n                variant={chipVariant}\r\n                size=\"sm\"\r\n                removable={!disabled}\r\n                onremove={() => removeTag(i)}\r\n                disabled={disabled}\r\n                class=\"animate-in zoom-in-50 fade-in-0 duration-200\"\r\n        >\r\n            {tag}\r\n        </Chip.Root>\r\n    {/each}\r\n\r\n    <!-- The Actual Input -->\r\n    <input\r\n            bind:this={inputRef}\r\n            bind:value={inputValue}\r\n            {disabled}\r\n            {placeholder}\r\n            onkeydown={handleKeydown}\r\n            onblur={() => {\r\n            // Optional: Auto-add tag on blur?\r\n            // Usually better to leave as text unless Enter is pressed to avoid accidents.\r\n            // addTag(inputValue);\r\n        }}\r\n            class=\"flex-1 bg-transparent outline-none placeholder:text-muted-foreground min-w-[120px]\"\r\n    />\r\n</div>",
+			"type": "registry:ui",
+			"target": "tag-input/tag-input.svelte"
+		},
+		{
+			"content": "import TagInput from \"./tag-input.svelte\";\r\n\r\nexport { TagInput as Root };",
+			"type": "registry:ui",
+			"target": "tag-input/index.ts"
+		}
+	]
+}
