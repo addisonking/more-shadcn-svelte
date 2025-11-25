@@ -143,6 +143,23 @@
       ]
     },
     {
+      "name": "qr-code",
+      "type": "registry:ui",
+      "title": "QR Code",
+      "description": "A vector-based QR generator with support for colors and logos.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/components/ui/qr-code/qr-code.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/qr-code/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "cursor",
       "type": "registry:ui",
       "title": "Cursor",

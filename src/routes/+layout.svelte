@@ -17,7 +17,7 @@
         PhoneCall,
         GithubIcon,
         SearchIcon, ImagePlus, Book, SquarePlay, Calendar, Palette, MousePointer2, RectangleHorizontal,
-        RectangleEllipsis, CircleDot,
+        RectangleEllipsis, CircleDot, QrCode,
     } from "lucide-svelte";
     import { page } from '$app/state';
     import { goto } from "$app/navigation";
@@ -44,6 +44,7 @@
                 { href: "/components/image-zoom", label: "Image Zoom", icon: ImagePlus },
                 { href: "/components/number-ticker", label: "Number Ticker", icon: ClockArrowUp },
                 { href: "/components/phone-input", label: "Phone Input", icon: PhoneCall },
+                { href: "/components/qr-code", label: "QR Code", icon: QrCode },
                 { href: "/components/status-dot", label: "Status Dot", icon: CircleDot },
                 { href: "/components/stepper", label: "Stepper", icon: ArrowBigRightDash },
                 { href: "/components/shiny-button", label: "Shiny Button", icon: Sparkle },

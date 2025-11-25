@@ -67,6 +67,14 @@
 		"relativeUrl": "color-picker.json"
 	},
 	{
+		"name": "qr-code",
+		"title": "QR Code",
+		"type": "registry:ui",
+		"description": "A vector-based QR generator with support for colors and logos.",
+		"registryDependencies": [],
+		"relativeUrl": "qr-code.json"
+	},
+	{
 		"name": "cursor",
 		"title": "Cursor",
 		"type": "registry:ui",
