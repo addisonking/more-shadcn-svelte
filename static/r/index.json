@@ -67,6 +67,24 @@
 		"relativeUrl": "color-picker.json"
 	},
 	{
+		"name": "choicebox",
+		"title": "Choicebox",
+		"type": "registry:ui",
+		"description": "A visual radio group for selecting complex options.",
+		"registryDependencies": [
+			"label"
+		],
+		"relativeUrl": "choicebox.json"
+	},
+	{
+		"name": "qr-code",
+		"title": "QR Code",
+		"type": "registry:ui",
+		"description": "A vector-based QR generator with support for colors and logos.",
+		"registryDependencies": [],
+		"relativeUrl": "qr-code.json"
+	},
+	{
 		"name": "cursor",
 		"title": "Cursor",
 		"type": "registry:ui",
@@ -91,6 +109,14 @@
 			"chip"
 		],
 		"relativeUrl": "tag-input.json"
+	},
+	{
+		"name": "status-dot",
+		"title": "Status Dot",
+		"type": "registry:ui",
+		"description": "A simple indicator for state, presence, or activity.",
+		"registryDependencies": [],
+		"relativeUrl": "status-dot.json"
 	},
 	{
 		"name": "number-ticker",

@@ -143,6 +143,60 @@
       ]
     },
     {
+      "name": "choicebox",
+      "type": "registry:ui",
+      "title": "Choicebox",
+      "description": "A visual radio group for selecting complex options.",
+      "registryDependencies": ["label"],
+      "files": [
+        {
+          "path": "src/lib/components/ui/choicebox/choicebox.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/choicebox/choicebox-item.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/choicebox/choicebox-indicator.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/choicebox/choicebox-title.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/choicebox/choicebox-description.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/choicebox/ctx.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/choicebox/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "qr-code",
+      "type": "registry:ui",
+      "title": "QR Code",
+      "description": "A vector-based QR generator with support for colors and logos.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/components/ui/qr-code/qr-code.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/qr-code/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "cursor",
       "type": "registry:ui",
       "title": "Cursor",
@@ -193,6 +247,23 @@
         },
         {
           "path": "src/lib/components/ui/tag-input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "status-dot",
+      "type": "registry:ui",
+      "title": "Status Dot",
+      "description": "A simple indicator for state, presence, or activity.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/components/ui/status-dot/status-dot.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/status-dot/index.ts",
           "type": "registry:ui"
         }
       ]
