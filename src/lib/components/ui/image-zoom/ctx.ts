@@ -1,35 +1,35 @@
-import { getContext, setContext } from "svelte";
-import type { Writable } from "svelte/store";
+import { getContext, setContext } from 'svelte';
+import type { Writable } from 'svelte/store';
 
-const IMAGE_ZOOM_KEY = Symbol("image-zoom");
+const IMAGE_ZOOM_KEY = Symbol('image-zoom');
 
 export type ZoomImageData = {
-    src: string;
-    alt: string;
-    index: number; // Will be assigned by root
+	src: string;
+	alt: string;
+	index: number;
 };
 
 type ImageZoomContext = {
-    currentImageIndex: Writable<number | null>;
-    open: Writable<boolean>;
+	currentImageIndex: Writable<number | null>;
+	open: Writable<boolean>;
 
-    registerImage: (imageData: Omit<ZoomImageData, 'index'>) => number;
-    openImage: (index: number) => void;
+	registerImage: (imageData: Omit<ZoomImageData, 'index'>) => number;
+	openImage: (index: number) => void;
 
-    nextImage: () => void;
-    prevImage: () => void;
+	nextImage: () => void;
+	prevImage: () => void;
 
-    registeredImages: Writable<ZoomImageData[]>;
+	registeredImages: Writable<ZoomImageData[]>;
 };
 
 export function setImageZoomContext(ctx: ImageZoomContext) {
-    setContext(IMAGE_ZOOM_KEY, ctx);
+	setContext(IMAGE_ZOOM_KEY, ctx);
 }
 
 export function getImageZoomContext() {
-    const ctx = getContext<ImageZoomContext>(IMAGE_ZOOM_KEY);
-    if (!ctx) {
-        throw new Error("ImageZoom.Trigger must be used inside an ImageZoom.Root");
-    }
-    return ctx;
+	const ctx = getContext<ImageZoomContext>(IMAGE_ZOOM_KEY);
+	if (!ctx) {
+		throw new Error('ImageZoom.Trigger must be used inside an ImageZoom.Root');
+	}
+	return ctx;
 }
