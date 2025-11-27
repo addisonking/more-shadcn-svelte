@@ -29,7 +29,8 @@
 		QrCode,
 		SquareDot,
 		Move,
-		AudioLines
+		AudioLines,
+		AlignVerticalSpaceAround
 	} from 'lucide-svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
@@ -53,7 +54,8 @@
 				{ href: '/components/date-strip', label: 'Date Strip', icon: Calendar },
 				{ href: '/components/phone-input', label: 'Phone Input', icon: PhoneCall },
 				{ href: '/components/sortable', label: 'Sortable', icon: Move },
-				{ href: '/components/tag-input', label: 'Tag Input', icon: RectangleEllipsis }
+				{ href: '/components/tag-input', label: 'Tag Input', icon: RectangleEllipsis },
+				{ href: '/components/wheel-picker', label: 'Wheel Picker', icon: AlignVerticalSpaceAround }
 			]
 		},
 		{

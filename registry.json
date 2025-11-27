@@ -172,6 +172,35 @@
       ]
     },
     {
+      "name": "wheel-picker",
+      "type": "registry:ui",
+      "title": "Wheel Picker",
+      "description": "An iOS-style scrollable wheel selector.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/components/ui/wheel-picker/wheel-picker.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/wheel-picker/wheel-picker-group.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/wheel-picker/wheel-picker-item.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/wheel-picker/ctx.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/wheel-picker/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "audio-wave",
       "type": "registry:ui",
       "title": "Audio Wave",

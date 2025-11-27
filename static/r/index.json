@@ -75,6 +75,14 @@
 		"relativeUrl": "color-picker.json"
 	},
 	{
+		"name": "wheel-picker",
+		"title": "Wheel Picker",
+		"type": "registry:ui",
+		"description": "An iOS-style scrollable wheel selector.",
+		"registryDependencies": [],
+		"relativeUrl": "wheel-picker.json"
+	},
+	{
 		"name": "audio-wave",
 		"title": "Audio Wave",
 		"type": "registry:ui",
