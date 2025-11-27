@@ -7,22 +7,18 @@
 
 	function setDraggable(e: MouseEvent | TouchEvent) {
 		const item = (e.target as HTMLElement).closest('[data-sortable-id]') as HTMLElement;
-		if (item) {
-			item.draggable = true;
-		}
+		if (item) item.draggable = true;
 	}
 
 	function unsetDraggable(e: MouseEvent | TouchEvent) {
 		const item = (e.target as HTMLElement).closest('[data-sortable-id]') as HTMLElement;
-		if (item) {
-			item.draggable = false;
-		}
+		if (item) item.draggable = false;
 	}
 </script>
 
 <div
 	class={cn(
-		'cursor-grab active:cursor-grabbing text-muted-foreground hover:text-foreground transition-colors',
+		'cursor-grab active:cursor-grabbing text-muted-foreground hover:text-foreground touch-none',
 		className
 	)}
 	onmousedown={setDraggable}

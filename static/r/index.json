@@ -75,6 +75,14 @@
 		"relativeUrl": "color-picker.json"
 	},
 	{
+		"name": "audio-wave",
+		"title": "Audio Wave",
+		"type": "registry:ui",
+		"description": "An audio visualization component",
+		"registryDependencies": [],
+		"relativeUrl": "audio-wave.json"
+	},
+	{
 		"name": "choicebox",
 		"title": "Choicebox",
 		"type": "registry:ui",

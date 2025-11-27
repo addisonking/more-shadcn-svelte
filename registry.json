@@ -172,6 +172,23 @@
       ]
     },
     {
+      "name": "audio-wave",
+      "type": "registry:ui",
+      "title": "Audio Wave",
+      "description": "An audio visualization component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/components/ui/audio-wave/audio-wave.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/audio-wave/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "choicebox",
       "type": "registry:ui",
       "title": "Choicebox",

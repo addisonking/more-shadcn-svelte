@@ -16,6 +16,7 @@
 
 	const ctx = getSortableContext();
 	let ref: HTMLElement | undefined = $state();
+
 	let isDragging = $derived(ctx.getDraggedId() === id);
 
 	onMount(() => {
@@ -25,10 +26,6 @@
 	onDestroy(() => {
 		ctx.unregisterItem(id);
 	});
-
-	function handleDragOver(e: DragEvent) {
-		ctx.onDragOver(e, id);
-	}
 </script>
 
 <div
@@ -36,13 +33,13 @@
 	data-sortable-id={id}
 	class={cn(
 		'relative transition-transform touch-none',
-		isDragging && 'opacity-50 z-50 ring-2 ring-primary ring-offset-2 rounded-lg bg-background',
+		isDragging && 'z-50 opacity-50 ring-2 ring-primary ring-offset-2 rounded-lg',
 		className
 	)}
 	draggable="false"
 	ondragstart={(e) => ctx.onDragStart(e, id)}
+	ondragover={(e) => ctx.onDragOver(e, id)}
 	ondragend={(e) => ctx.onDragEnd(e)}
-	ondragover={handleDragOver}
 	role="listitem"
 >
 	{@render children()}

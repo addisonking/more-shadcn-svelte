@@ -1,0 +1,19 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "audio-wave",
+	"title": "Audio Wave",
+	"type": "registry:ui",
+	"description": "An audio visualization component",
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\n\tlet {\n\t\tplaying = true,\n\t\tbars = 4,\n\t\tclass: className,\n\t\tbarColor = 'bg-primary',\n\t\t...rest\n\t}: {\n\t\tplaying?: boolean;\n\t\tbars?: number;\n\t\tclass?: string;\n\t\tbarColor?: string;\n\t\t[key: string]: any;\n\t} = $props();\n</script>\n\n<div class={cn('flex items-end justify-center gap-1 h-8', className)} {...rest}>\n\t{#each Array.from({ length: bars }) as _, i}\n\t\t<div\n\t\t\tclass={cn(\n\t\t\t\t'w-1 rounded-sm transition-all duration-300 ease-in-out',\n\t\t\t\tbarColor,\n\t\t\t\tplaying ? 'animate-audiowave' : 'h-2'\n\t\t\t)}\n\t\t\tstyle=\"animation-delay: {i * 0.15}s;\"\n\t\t></div>\n\t{/each}\n</div>\n\n<style>\n\t.animate-audiowave {\n\t\tanimation-name: audiowave;\n\t\tanimation-duration: 1s;\n\t\tanimation-timing-function: ease-in-out;\n\t\tanimation-iteration-count: infinite;\n\t}\n\n\t@keyframes audiowave {\n\t\t0%,\n\t\t100% {\n\t\t\theight: 25%;\n\t\t}\n\t\t50% {\n\t\t\theight: 100%;\n\t\t}\n\t}\n</style>\n",
+			"type": "registry:ui",
+			"target": "audio-wave/audio-wave.svelte"
+		},
+		{
+			"content": "import AudioWave from './audio-wave.svelte';\nexport { AudioWave as Root };\n",
+			"type": "registry:ui",
+			"target": "audio-wave/index.ts"
+		}
+	]
+}

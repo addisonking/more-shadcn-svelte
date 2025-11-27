@@ -28,7 +28,8 @@
 		CircleDot,
 		QrCode,
 		SquareDot,
-		Move
+		Move,
+		AudioLines
 	} from 'lucide-svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
@@ -66,6 +67,7 @@
 		{
 			title: 'Visuals & Media',
 			links: [
+				{ href: '/components/audio-wave', label: 'Audio Wave', icon: AudioLines },
 				{ href: '/components/cursor', label: 'Cursor', icon: MousePointer2 },
 				{ href: '/components/image-zoom', label: 'Image Zoom', icon: ImagePlus },
 				{ href: '/components/shiny-button', label: 'Shiny Button', icon: Sparkle },
