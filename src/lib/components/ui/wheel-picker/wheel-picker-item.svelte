@@ -39,7 +39,7 @@
 		'flex h-8 min-h-[32px] w-full items-center justify-center snap-center text-sm transition-all duration-150 cursor-pointer select-none',
 		isSelected
 			? 'text-foreground font-semibold scale-100 opacity-100'
-			: 'text-muted-foreground scale-90 opacity-40',
+			: 'text-muted-foreground scale-90 opacity-40 scale-y-80',
 		className
 	)}
 >

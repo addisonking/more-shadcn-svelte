@@ -46,6 +46,13 @@
 		}
 	});
 
+	function safeScrollTo(node: HTMLElement, behavior: ScrollBehavior = 'smooth') {
+		if (!scrollRef) return;
+		const top = node.offsetTop - scrollRef.clientHeight / 2 + node.clientHeight / 2;
+
+		scrollRef.scrollTo({ top, behavior });
+	}
+
 	function syncScrollToValue() {
 		if (!scrollRef) return;
 		const containerCenter = scrollRef.scrollTop + scrollRef.clientHeight / 2;
@@ -74,10 +81,12 @@
 			const itemTop = node.offsetTop;
 			const containerCenter = scrollRef.scrollTop + scrollRef.clientHeight / 2;
 			const elementCenter = itemTop + node.clientHeight / 2;
+
 			if (Math.abs(containerCenter - elementCenter) < 2) return;
 
 			isInternalScroll = true;
-			node.scrollIntoView({ block: 'center', behavior: 'smooth' });
+			safeScrollTo(node, 'smooth');
+
 			scrollTargetIndex = null;
 			cancelAnimationFrame(inertiaFrame);
 			setTimeout(() => {
@@ -194,12 +203,12 @@
 	onMount(() => {
 		if (value) {
 			const node = items.get(value);
-			if (node) node.scrollIntoView({ block: 'center', behavior: 'instant' });
+			if (node) safeScrollTo(node, 'instant');
 		}
 
 		observer = new IntersectionObserver(
 			(entries) => {
-				if (isInternalScroll || isDragging || scrollTargetIndex !== null) return;
+				if (isInternalScroll || isDragging || scrollTargetIndex !== null || velocity !== 0) return;
 
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
