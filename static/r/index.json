@@ -13,6 +13,14 @@
 		"relativeUrl": "walkthrough.json"
 	},
 	{
+		"name": "sortable",
+		"title": "Sortable",
+		"type": "registry:ui",
+		"description": "A sortable list for vertical, horizontal, and grid layouts.",
+		"registryDependencies": [],
+		"relativeUrl": "sortable.json"
+	},
+	{
 		"name": "image-zoom",
 		"title": "Image Zoom",
 		"type": "registry:ui",

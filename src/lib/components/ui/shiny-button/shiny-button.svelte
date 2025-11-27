@@ -20,7 +20,11 @@
 </script>
 
 <button
-	class={cn('relative overflow-hidden group', buttonVariants({ variant, size }), className)}
+	class={cn(
+		'relative overflow-hidden group cursor-pointer',
+		buttonVariants({ variant, size }),
+		className
+	)}
 	{...rest}
 >
 	<div

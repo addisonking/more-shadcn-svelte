@@ -34,6 +34,35 @@
       ]
     },
     {
+      "name": "sortable",
+      "type": "registry:ui",
+      "title": "Sortable",
+      "description": "A sortable list for vertical, horizontal, and grid layouts.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/components/ui/sortable/sortable.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/sortable/sortable-item.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/sortable/sortable-handle.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/sortable/ctx.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/sortable/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "image-zoom",
       "type": "registry:ui",
       "title": "Image Zoom",

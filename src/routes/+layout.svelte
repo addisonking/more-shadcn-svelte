@@ -27,7 +27,8 @@
 		RectangleEllipsis,
 		CircleDot,
 		QrCode,
-		SquareDot
+		SquareDot,
+		Move
 	} from 'lucide-svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
@@ -76,6 +77,7 @@
 			links: [
 				{ href: '/components/number-ticker', label: 'Number Ticker', icon: ClockArrowUp },
 				{ href: '/components/qr-code', label: 'QR Code', icon: QrCode },
+				{ href: '/components/sortable', label: 'Sortable', icon: Move },
 				{ href: '/components/status-dot', label: 'Status Dot', icon: CircleDot }
 			]
 		}
