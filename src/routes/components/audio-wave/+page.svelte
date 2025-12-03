@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as AudioWave from '$lib/components/ui/audio-wave';
+	import { AudioWave } from '$lib/components/ui/audio-wave';
 	import * as DocPage from '$lib/components/feature/doc-page';
 	import { Button } from '$lib/components/ui/button';
 	import { Pause, Play } from 'lucide-svelte';
@@ -68,33 +68,28 @@
 			<DocPage.Preview class="flex flex-col gap-10 items-center py-10">
 				<div class="flex items-center gap-4">
 					<span class="text-sm text-muted-foreground w-24 text-right">Small Green</span>
-					<AudioWave.Root playing={true} bars={6} class="h-6" barColor="bg-emerald-500" />
+					<AudioWave playing={true} bars={6} class="h-6" barColor="bg-emerald-500" />
 				</div>
 
 				<div class="flex items-center gap-4">
 					<span class="text-sm text-muted-foreground w-24 text-right">Large & Thin</span>
-					<AudioWave.Root
-						playing={true}
-						bars={12}
-						class="h-16 gap-0.5"
-						barColor="bg-rose-500 w-0.5"
-					/>
+					<AudioWave playing={true} bars={12} class="h-16 gap-0.5" barColor="bg-rose-500 w-0.5" />
 				</div>
 
 				<div class="flex items-center gap-4">
 					<span class="text-sm text-muted-foreground w-24 text-right">Muted</span>
-					<AudioWave.Root playing={true} bars={4} class="h-8" barColor="bg-muted-foreground/50" />
+					<AudioWave playing={true} bars={4} class="h-8" barColor="bg-muted-foreground/50" />
 				</div>
 			</DocPage.Preview>
 			<DocPage.Code
 				code={`<!-- Small Green -->
-<AudioWave.Root bars={6} class="h-6" barColor="bg-emerald-500" />
+<AudioWave bars={6} class="h-6" barColor="bg-emerald-500" />
 
 <!-- Large & Thin -->
-<AudioWave.Root bars={12} class="h-16 gap-0.5" barColor="bg-rose-500 w-0.5" />
+<AudioWave bars={12} class="h-16 gap-0.5" barColor="bg-rose-500 w-0.5" />
 
 <!-- Muted -->
-<AudioWave.Root bars={4} class="h-8" barColor="bg-muted-foreground/50" />`}
+<AudioWave bars={4} class="h-8" barColor="bg-muted-foreground/50" />`}
 			/>
 		</DocPage.Example>
 	</DocPage.Content>
