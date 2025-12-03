@@ -129,9 +129,7 @@
 		"title": "Tag Input",
 		"type": "registry:ui",
 		"description": "An input field for entering multiple values, displayed as chips.",
-		"registryDependencies": [
-			"chip"
-		],
+		"registryDependencies": [],
 		"relativeUrl": "tag-input.json"
 	},
 	{

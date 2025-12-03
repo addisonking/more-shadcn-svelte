@@ -39,10 +39,10 @@
 						</div>
 					</div>
 
-					<AudioWave.Root playing={isPlaying} class="h-6 text-emerald-500 gap-0.5" />
+					<AudioWave playing={isPlaying} class="h-6 text-emerald-500 gap-0.5" />
 				</div>
 			</DocPage.Preview>
-			<DocPage.Code code={`<AudioWave.Root playing={isPlaying} />`} />
+			<DocPage.Code code={`<AudioWave playing={isPlaying} />`} />
 		</DocPage.Example>
 
 		<DocPage.Heading>Installation</DocPage.Heading>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import * as DocPage from '$lib/components/feature/doc-page';
 	import * as WheelPicker from '$lib/components/ui/wheel-picker';
-	import { Label } from '$lib/components/ui/label';
 
 	const frameworks = [
 		'Next.js',
@@ -20,6 +19,9 @@
 	let ampm = ['AM', 'PM'];
 
 	let time = $state({ h: '09', m: '41', p: 'AM' });
+
+	let days = Array.from({ length: 31 }, (_, i) => (i + 1).toString());
+	let selectedDay = $state('15');
 </script>
 
 <DocPage.Root>
@@ -31,7 +33,7 @@
 	<DocPage.Content>
 		<DocPage.Example>
 			<DocPage.Preview class="py-10">
-				<div class="border rounded-xl overflow-hidden shadow-sm">
+				<div class="border rounded-xl overflow-hidden shadow-sm w-48">
 					<WheelPicker.Root>
 						<WheelPicker.Group bind:value={selectedFramework}>
 							{#each frameworks as fw}
@@ -52,18 +54,32 @@
 			/>
 		</DocPage.Example>
 
+		<DocPage.Heading>Installation</DocPage.Heading>
+		{@const componentName = 'wheel-picker'}
+		<DocPage.Text
+			>Run the following command to install the `{componentName}` components:</DocPage.Text
+		>
+		<DocPage.PM
+			command="execute"
+			args={[
+				'shadcn-svelte@latest',
+				'add',
+				'https://more-shadcn.noair.fun/r/' + componentName + '.json'
+			]}
+		/>
+
 		<DocPage.Heading>Multi-Column</DocPage.Heading>
 		<DocPage.Example>
 			<DocPage.Preview class="py-10">
-				<div class="border rounded-xl overflow-hidden shadow-sm w-40">
+				<div class="border rounded-xl overflow-hidden shadow-sm w-48">
 					<WheelPicker.Root>
-						<WheelPicker.Group bind:value={time.h}>
+						<WheelPicker.Group bind:value={time.h} loop>
 							{#each hours as h}
 								<WheelPicker.Item value={h}>{h}</WheelPicker.Item>
 							{/each}
 						</WheelPicker.Group>
-
-						<WheelPicker.Group bind:value={time.m}>
+						<div class="flex items-center justify-center text-muted-foreground pb-1">:</div>
+						<WheelPicker.Group bind:value={time.m} loop>
 							{#each minutes as m}
 								<WheelPicker.Item value={m}>{m}</WheelPicker.Item>
 							{/each}
@@ -79,9 +95,44 @@
 			</DocPage.Preview>
 			<DocPage.Code
 				code={`<WheelPicker.Root>
-  <WheelPicker.Group bind:value={hours} ... />
-  <WheelPicker.Group bind:value={minutes} ... />
-  <WheelPicker.Group bind:value={period} ... />
+  <!-- Use 'loop' prop for infinite scrolling -->
+  <WheelPicker.Group bind:value={hours} loop>
+     ...
+  </WheelPicker.Group>
+
+  <div class="...">:</div> <!-- You can put separators in between -->
+
+  <WheelPicker.Group bind:value={minutes} loop>
+     ...
+  </WheelPicker.Group>
+
+  <WheelPicker.Group bind:value={period}>
+     ...
+  </WheelPicker.Group>
+</WheelPicker.Root>`}
+			/>
+		</DocPage.Example>
+
+		<DocPage.Heading>Infinite Loop</DocPage.Heading>
+		<DocPage.Example>
+			<DocPage.Preview class="py-10">
+				<div class="border rounded-xl overflow-hidden shadow-sm w-32">
+					<WheelPicker.Root>
+						<WheelPicker.Group bind:value={selectedDay} loop>
+							{#each days as day}
+								<WheelPicker.Item value={day}>{day}</WheelPicker.Item>
+							{/each}
+						</WheelPicker.Group>
+					</WheelPicker.Root>
+				</div>
+			</DocPage.Preview>
+			<DocPage.Code
+				code={`<WheelPicker.Root>
+  <WheelPicker.Group bind:value={day} loop>
+    {#each days as day}
+      <WheelPicker.Item value={day}>{day}</WheelPicker.Item>
+    {/each}
+  </WheelPicker.Group>
 </WheelPicker.Root>`}
 			/>
 		</DocPage.Example>

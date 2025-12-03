@@ -3,9 +3,9 @@
 	import { buttonVariants } from '$lib/components/ui/button';
 	import type { Snippet } from 'svelte';
 	import type { VariantProps } from 'class-variance-authority';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
 
-	type Props = HTMLButtonAttributes &
+	type Props = (HTMLButtonAttributes & HTMLAnchorAttributes) &
 		VariantProps<typeof buttonVariants> & {
 			children: Snippet;
 		};
@@ -20,6 +20,17 @@
 	}: Props = $props();
 </script>
 
+{#snippet ButtonContent()}
+	<div
+		class="shine-element absolute inset-0 -top-[20%] -bottom-[20%] z-0 hidden w-[50%] -translate-x-[200%] skew-x-[-20deg] bg-gradient-to-r from-transparent via-current to-transparent opacity-30 group-hover:animate-none md:block"
+		aria-hidden="true"
+	></div>
+
+	<span class="relative z-10 flex items-center justify-center">
+		{@render children()}
+	</span>
+{/snippet}
+
 {#if href}
 	<a
 		class={cn(
@@ -30,14 +41,7 @@
 		{href}
 		{...rest}
 	>
-		<div
-			class="shine-element absolute inset-0 -top-[20%] -bottom-[20%] z-0 hidden w-[50%] -translate-x-[200%] bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-20deg] group-hover:animate-none md:block"
-			aria-hidden="true"
-		></div>
-
-		<span class="relative z-10 flex items-center justify-center">
-			{@render children()}
-		</span>
+		{@render ButtonContent()}
 	</a>
 {:else}
 	<button
@@ -48,14 +52,7 @@
 		)}
 		{...rest}
 	>
-		<div
-			class="shine-element absolute inset-0 -top-[20%] -bottom-[20%] z-0 hidden w-[50%] -translate-x-[200%] bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-20deg] group-hover:animate-none md:block"
-			aria-hidden="true"
-		></div>
-
-		<span class="relative z-10 flex items-center justify-center">
-			{@render children()}
-		</span>
+		{@render ButtonContent()}
 	</button>
 {/if}
 

@@ -1,14 +1,10 @@
-<!--
-	Installed from @ieedan/shadcn-svelte-extras
--->
-
 <script lang="ts">
-	import { Tabs as TabsPrimitive } from 'bits-ui';
-	import { cn } from '$lib/utils/utils.js';
+	import { Tabs as TabsPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
 
 	let {
 		ref = $bindable(null),
-		value = $bindable(''),
+		value = $bindable(""),
 		class: className,
 		...restProps
 	}: TabsPrimitive.RootProps = $props();
@@ -18,6 +14,6 @@
 	bind:ref
 	bind:value
 	data-slot="tabs"
-	class={cn('flex flex-col gap-2', className)}
+	class={cn("flex flex-col gap-2", className)}
 	{...restProps}
 />

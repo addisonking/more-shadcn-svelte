@@ -45,6 +45,7 @@
 	"dependencies": {
 		"@floating-ui/dom": "^1.7.4",
 		"@kevwpl/svelte-o-phone": "^0.0.10",
+		"class-variance-authority": "^0.7.1",
 		"libphonenumber-js": "^1.12.29",
 		"lucide-svelte": "^0.554.0",
 		"qrcode-generator": "^2.0.4",

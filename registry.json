@@ -191,7 +191,7 @@
           "type": "registry:ui"
         },
         {
-          "path": "src/lib/components/ui/wheel-picker/ctx.ts",
+          "path": "src/lib/components/ui/wheel-picker/ctx.svelte.ts",
           "type": "registry:ui"
         },
         {
@@ -314,7 +314,7 @@
       "type": "registry:ui",
       "title": "Tag Input",
       "description": "An input field for entering multiple values, displayed as chips.",
-      "registryDependencies": ["chip"],
+      "registryDependencies": [],
       "files": [
         {
           "path": "src/lib/components/ui/tag-input/tag-input.svelte",

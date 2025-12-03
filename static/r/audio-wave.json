@@ -11,7 +11,7 @@
 			"target": "audio-wave/audio-wave.svelte"
 		},
 		{
-			"content": "import AudioWave from './audio-wave.svelte';\nexport { AudioWave as Root };\n",
+			"content": "import AudioWave from './audio-wave.svelte';\nexport { AudioWave };\n",
 			"type": "registry:ui",
 			"target": "audio-wave/index.ts"
 		}
