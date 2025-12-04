@@ -383,7 +383,7 @@
       "type": "registry:ui",
       "title": "Phone Input",
       "description": "International phone input with validation and formatting.",
-      "dependencies": ["svelte-o-phone", "libphonenumber-js"],
+      "dependencies": ["@kevwpl/svelte-o-phone", "libphonenumber-js"],
       "registryDependencies": ["button", "input", "popover", "command"],
       "files": [
         {
