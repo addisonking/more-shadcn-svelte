@@ -379,6 +379,23 @@
       ]
     },
     {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "A vertical list of events or milestones.",
+      "registryDependencies": [],
+      "files": [
+        { "path": "src/lib/components/ui/timeline/timeline.svelte", "type": "registry:ui" },
+        { "path": "src/lib/components/ui/timeline/timeline-item.svelte", "type": "registry:ui" },
+        { "path": "src/lib/components/ui/timeline/timeline-separator.svelte", "type": "registry:ui" },
+        { "path": "src/lib/components/ui/timeline/timeline-content.svelte", "type": "registry:ui" },
+        { "path": "src/lib/components/ui/timeline/timeline-title.svelte", "type": "registry:ui" },
+        { "path": "src/lib/components/ui/timeline/timeline-date.svelte", "type": "registry:ui" },
+        { "path": "src/lib/components/ui/timeline/timeline-description.svelte", "type": "registry:ui" },
+        { "path": "src/lib/components/ui/timeline/index.ts", "type": "registry:ui" }
+      ]
+    },
+    {
       "name": "compare-slider",
       "type": "registry:ui",
       "title": "Compare Slider",

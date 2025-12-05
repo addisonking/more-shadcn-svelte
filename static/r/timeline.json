@@ -1,0 +1,49 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "timeline",
+	"title": "Timeline",
+	"type": "registry:ui",
+	"description": "A vertical list of events or milestones.",
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\timport type { Snippet } from 'svelte';\n\n\tlet {\n\t\tclass: className,\n\t\tchildren\n\t}: {\n\t\tclass?: string;\n\t\tchildren: Snippet;\n\t} = $props();\n</script>\n\n<div class={cn('relative flex flex-col', className)}>\n\t<div class=\"absolute left-[11.5px] top-0 bottom-0 w-px bg-border\" />\n\t{@render children()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\timport type { Snippet } from 'svelte';\n\n\tlet {\n\t\tclass: className,\n\t\tchildren\n\t}: {\n\t\tclass?: string;\n\t\tchildren: Snippet;\n\t} = $props();\n</script>\n\n<div class={cn('group relative flex items-start pb-8 last:pb-0', className)}>\n\t{@render children()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-item.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\timport type { Snippet } from 'svelte';\n\n\tlet {\n\t\tclass: className,\n\t\tchildren\n\t}: {\n\t\tclass?: string;\n\t\tchildren?: Snippet;\n\t} = $props();\n</script>\n\n<div\n\tclass={cn(\n\t\t'relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border bg-background shadow-sm',\n\t\tclassName\n\t)}\n>\n\t{#if children}\n\t\t{@render children()}\n\t{:else}\n\t\t<div class=\"h-1.5 w-1.5 rounded-full bg-primary\" />\n\t{/if}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-separator.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\timport type { Snippet } from 'svelte';\n\n\tlet {\n\t\tclass: className,\n\t\tchildren\n\t}: {\n\t\tclass?: string;\n\t\tchildren: Snippet;\n\t} = $props();\n</script>\n\n<div class={cn('flex flex-col gap-1 flex-1 ml-4 pt-0.5', className)}>\n\t{@render children()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-content.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\timport type { Snippet } from 'svelte';\n\n\tlet { class: className, children }: { class?: string; children: Snippet } = $props();\n</script>\n\n<h3 class={cn('text-sm font-semibold leading-none tracking-tight', className)}>\n\t{@render children()}\n</h3>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-title.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\timport type { Snippet } from 'svelte';\n\n\tlet { class: className, children }: { class?: string; children: Snippet } = $props();\n</script>\n\n<p class={cn('text-xs text-muted-foreground mb-0.5', className)}>\n\t{@render children()}\n</p>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-date.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\timport type { Snippet } from 'svelte';\n\n\tlet { class: className, children }: { class?: string; children: Snippet } = $props();\n</script>\n\n<p class={cn('text-sm text-muted-foreground mt-1', className)}>\n\t{@render children()}\n</p>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-description.svelte"
+		},
+		{
+			"content": "import Root from './timeline.svelte';\nimport Item from './timeline-item.svelte';\nimport Separator from './timeline-separator.svelte';\nimport Content from './timeline-content.svelte';\nimport Title from './timeline-title.svelte';\nimport Date from './timeline-date.svelte';\nimport Description from './timeline-description.svelte';\n\nexport { Root, Item, Separator, Content, Title, Date, Description };\n",
+			"type": "registry:ui",
+			"target": "timeline/index.ts"
+		}
+	]
+}

@@ -33,7 +33,8 @@
 		AlignVerticalSpaceAround,
 		MoveHorizontal,
 		Mouse,
-		SquareSplitHorizontal
+		SquareSplitHorizontal,
+		History
 	} from 'lucide-svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
@@ -48,7 +49,7 @@
 			links: [{ href: '/', label: 'Introduction', icon: Rocket }]
 		},
 		{
-			title: 'Forms',
+			title: 'Forms & Inputs',
 			links: [
 				{ href: '/components/autocomplete', label: 'Autocomplete', icon: Book },
 				{ href: '/components/chip', label: 'Chip', icon: RectangleHorizontal },
@@ -57,7 +58,6 @@
 				{ href: '/components/date-strip', label: 'Date Strip', icon: Calendar },
 				{ href: '/components/phone-input', label: 'Phone Input', icon: PhoneCall },
 				{ href: '/components/scrubbable', label: 'Scrubbable', icon: MoveHorizontal },
-				{ href: '/components/sortable', label: 'Sortable', icon: Move },
 				{ href: '/components/tag-input', label: 'Tag Input', icon: RectangleEllipsis },
 				{ href: '/components/wheel-picker', label: 'Wheel Picker', icon: AlignVerticalSpaceAround }
 			]
@@ -65,9 +65,7 @@
 		{
 			title: 'Navigation',
 			links: [
-				{ href: '/components/big-calendar', label: 'Big Calendar', icon: Calendar },
 				{ href: '/components/bottom-nav', label: 'Bottom Nav', icon: PanelBottomClose },
-				{ href: '/components/horizontal-scroll', label: 'Horizontal Scroll', icon: Mouse },
 				{ href: '/components/stepper', label: 'Stepper', icon: ArrowBigRightDash },
 				{ href: '/components/walkthrough', label: 'Walkthrough', icon: Footprints }
 			]
@@ -91,9 +89,18 @@
 		{
 			title: 'Data Display',
 			links: [
+				{ href: '/components/big-calendar', label: 'Big Calendar', icon: Calendar },
 				{ href: '/components/number-ticker', label: 'Number Ticker', icon: ClockArrowUp },
 				{ href: '/components/qr-code', label: 'QR Code', icon: QrCode },
-				{ href: '/components/status-dot', label: 'Status Dot', icon: CircleDot }
+				{ href: '/components/status-dot', label: 'Status Dot', icon: CircleDot },
+				{ href: '/components/timeline', label: 'Timeline', icon: History }
+			]
+		},
+		{
+			title: 'Utilities',
+			links: [
+				{ href: '/components/horizontal-scroll', label: 'Horizontal Scroll', icon: Mouse },
+				{ href: '/components/sortable', label: 'Sortable', icon: Move }
 			]
 		}
 	];

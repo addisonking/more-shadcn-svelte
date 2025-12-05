@@ -5,6 +5,8 @@
 	import { Switch } from '$lib/components/ui/switch';
 	import { Label } from '$lib/components/ui/label';
 	import { Calendar, ChevronLeft, ChevronRight, Ban, Clock } from 'lucide-svelte';
+	import * as Dialog from '$lib/components/ui/dialog/index.js';
+	import { Input } from '$lib/components/ui/input';
 
 	const today = new Date();
 	const d = (offset: number) => {
@@ -18,6 +20,8 @@
 		start: d(0),
 		end: d(0)
 	});
+
+	let newEvent = $state('');
 
 	let showWeekends = $state(true);
 
@@ -61,7 +65,7 @@
 
 	function addEvent() {
 		if (!selectedDateRange.start || !selectedDateRange.end) return;
-		const title = prompt('Event Title:');
+		const title = newEvent;
 		if (!title) return;
 
 		events = [
@@ -111,7 +115,21 @@
 								</span>
 							</div>
 						</div>
-						<Button size="sm" onclick={addEvent}>Add Event to Selection</Button>
+						<Dialog.Root>
+							<Dialog.Trigger>
+								<Button size="sm">Add Event to Selection</Button>
+							</Dialog.Trigger>
+							<Dialog.Content>
+								<Dialog.Header>
+									<Dialog.Title>Add event?</Dialog.Title>
+									<Dialog.Description>Whats the name of the event?</Dialog.Description>
+									<Input bind:value={newEvent} />
+								</Dialog.Header>
+								<Dialog.Footer>
+									<Button size="sm" type="submit" onclick={addEvent}>Add Event to Selection</Button>
+								</Dialog.Footer>
+							</Dialog.Content>
+						</Dialog.Root>
 					</div>
 
 					<BigCalendar.Root

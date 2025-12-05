@@ -166,6 +166,14 @@
 		"relativeUrl": "number-ticker.json"
 	},
 	{
+		"name": "timeline",
+		"title": "Timeline",
+		"type": "registry:ui",
+		"description": "A vertical list of events or milestones.",
+		"registryDependencies": [],
+		"relativeUrl": "timeline.json"
+	},
+	{
 		"name": "compare-slider",
 		"title": "Compare Slider",
 		"type": "registry:ui",
