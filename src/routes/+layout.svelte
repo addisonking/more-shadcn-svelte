@@ -35,7 +35,8 @@
 		Mouse,
 		SquareSplitHorizontal,
 		History,
-		Dock
+		Dock,
+		Expand
 	} from 'lucide-svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
@@ -57,6 +58,7 @@
 				{ href: '/components/choicebox', label: 'Choicebox', icon: SquareDot },
 				{ href: '/components/color-picker', label: 'Color Picker', icon: Palette },
 				{ href: '/components/date-strip', label: 'Date Strip', icon: Calendar },
+				{ href: '/components/hold-button', label: 'Hold Button', icon: Book },
 				{ href: '/components/phone-input', label: 'Phone Input', icon: PhoneCall },
 				{ href: '/components/scrubbable', label: 'Scrubbable', icon: MoveHorizontal },
 				{ href: '/components/tag-input', label: 'Tag Input', icon: RectangleEllipsis },

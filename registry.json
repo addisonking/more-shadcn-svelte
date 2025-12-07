@@ -408,6 +408,23 @@
       ]
     },
     {
+      "name": "hold-button",
+      "type": "registry:ui",
+      "title": "Hold Button",
+      "description": "A button that triggers an action only after being held for a specified duration.",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/lib/components/ui/hold-button/hold-button.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/hold-button/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "timeline",
       "type": "registry:ui",
       "title": "Timeline",

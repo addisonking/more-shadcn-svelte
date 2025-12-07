@@ -176,6 +176,16 @@
 		"relativeUrl": "dock.json"
 	},
 	{
+		"name": "hold-button",
+		"title": "Hold Button",
+		"type": "registry:ui",
+		"description": "A button that triggers an action only after being held for a specified duration.",
+		"registryDependencies": [
+			"button"
+		],
+		"relativeUrl": "hold-button.json"
+	},
+	{
 		"name": "timeline",
 		"title": "Timeline",
 		"type": "registry:ui",
