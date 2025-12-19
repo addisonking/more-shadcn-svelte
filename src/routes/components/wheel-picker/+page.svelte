@@ -127,7 +127,7 @@
 				</div>
 			</DocPage.Preview>
 			<DocPage.Code
-				code={`<WheelPicker.Root collapsed>
+				code={`<WheelPicker.Root collapsed={true}>
   <WheelPicker.Group bind:value={selectedFramework}>
     {#each frameworks as fw}
       <WheelPicker.Item value={fw}>{fw}</WheelPicker.Item>
