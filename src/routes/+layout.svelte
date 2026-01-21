@@ -65,16 +65,16 @@
 					href: '/components/hold-button',
 					label: 'Hold Button',
 					icon: SquareArrowDown,
-					new: true
+					new: false
 				},
 				{ href: '/components/phone-input', label: 'Phone Input', icon: PhoneCall, new: false },
-				{ href: '/components/scrubbable', label: 'Scrubbable', icon: MoveHorizontal, new: true },
+				{ href: '/components/scrubbable', label: 'Scrubbable', icon: MoveHorizontal, new: false },
 				{ href: '/components/tag-input', label: 'Tag Input', icon: RectangleEllipsis, new: false },
 				{
 					href: '/components/wheel-picker',
 					label: 'Wheel Picker',
 					icon: AlignVerticalSpaceAround,
-					new: true
+					new: false
 				}
 			]
 		},
@@ -82,7 +82,7 @@
 			title: 'Navigation',
 			links: [
 				{ href: '/components/bottom-nav', label: 'Bottom Nav', icon: PanelBottomClose, new: false },
-				{ href: '/components/dock', label: 'Dock', icon: Dock, new: true },
+				{ href: '/components/dock', label: 'Dock', icon: Dock, new: false },
 				{ href: '/components/stepper', label: 'Stepper', icon: ArrowBigRightDash, new: false },
 				{ href: '/components/walkthrough', label: 'Walkthrough', icon: Footprints, new: false }
 			]
@@ -107,7 +107,7 @@
 		{
 			title: 'Data Display',
 			links: [
-				{ href: '/components/big-calendar', label: 'Big Calendar', icon: Calendar, new: true },
+				{ href: '/components/big-calendar', label: 'Big Calendar', icon: Calendar, new: false },
 				{
 					href: '/components/number-ticker',
 					label: 'Number Ticker',
@@ -116,7 +116,7 @@
 				},
 				{ href: '/components/qr-code', label: 'QR Code', icon: QrCode, new: false },
 				{ href: '/components/status-dot', label: 'Status Dot', icon: CircleDot, new: false },
-				{ href: '/components/timeline', label: 'Timeline', icon: History, new: true }
+				{ href: '/components/timeline', label: 'Timeline', icon: History, new: false }
 			]
 		},
 		{
@@ -126,10 +126,10 @@
 					href: '/components/horizontal-scroll',
 					label: 'Horizontal Scroll',
 					icon: Mouse,
-					new: true
+					new: false
 				},
 				{ href: '/components/sortable', label: 'Sortable', icon: Move, new: false },
-				{ href: '/components/verify-human', label: 'Verify Human', icon: Fingerprint, new: true }
+				{ href: '/components/verify-human', label: 'Verify Human', icon: Fingerprint, new: false }
 			]
 		}
 	];
