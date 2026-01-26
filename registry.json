@@ -4,6 +4,43 @@
   "homepage": "https://your-site.com",
   "items": [
     {
+      "name": "audio",
+      "type": "registry:ui",
+      "title": "Audio",
+      "description": "A modern audio player with progress scrubbing and volume controls.",
+      "registryDependencies": ["button", "slider", "hover-card"],
+      "files": [
+        {
+          "path": "src/lib/components/ui/audio/audio.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/audio/audio-play-button.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/audio/audio-slider.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/audio/audio-time.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/audio/audio-volume.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/audio/ctx.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/audio/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "audio-wave",
       "type": "registry:ui",
       "title": "Audio Wave",
@@ -374,6 +411,23 @@
         },
         {
           "path": "src/lib/components/ui/image-zoom/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "knob",
+      "type": "registry:ui",
+      "title": "Knob",
+      "description": "A theme-aware rotating dial for precise numeric adjustment.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/components/ui/knob/knob.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/components/ui/knob/index.ts",
           "type": "registry:ui"
         }
       ]

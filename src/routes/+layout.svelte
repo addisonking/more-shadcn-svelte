@@ -39,7 +39,10 @@
 		Dock,
 		Expand,
 		SquareArrowDown,
-		Fingerprint
+		Fingerprint,
+		SquareChevronDown,
+		Radio,
+		CircleGauge
 	} from 'lucide-svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
@@ -62,11 +65,18 @@
 				{ href: '/components/color-picker', label: 'Color Picker', icon: Palette, new: false },
 				{ href: '/components/date-strip', label: 'Date Strip', icon: Calendar, new: false },
 				{
+					href: '/components/dynamic-select',
+					label: 'Dynamic Select',
+					icon: SquareChevronDown,
+					new: true
+				},
+				{
 					href: '/components/hold-button',
 					label: 'Hold Button',
 					icon: SquareArrowDown,
 					new: false
 				},
+				{ href: '/components/knob', label: 'Knob', icon: CircleGauge, new: true },
 				{ href: '/components/phone-input', label: 'Phone Input', icon: PhoneCall, new: false },
 				{ href: '/components/scrubbable', label: 'Scrubbable', icon: MoveHorizontal, new: false },
 				{ href: '/components/tag-input', label: 'Tag Input', icon: RectangleEllipsis, new: false },
@@ -90,6 +100,7 @@
 		{
 			title: 'Visuals & Media',
 			links: [
+				{ href: '/components/audio', label: 'Audio', icon: Radio, new: true },
 				{ href: '/components/audio-wave', label: 'Audio Wave', icon: AudioLines, new: false },
 				{
 					href: '/components/compare-slider',
