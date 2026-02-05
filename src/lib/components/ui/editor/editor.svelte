@@ -78,29 +78,44 @@
 				2: 'text-xl font-bold',
 				3: 'text-lg font-bold'
 			};
-			return `<span class="syntax text-muted-foreground/50">${headingMatch[1]} </span><span class="${sizes[level]}">${highlightInline(headingMatch[2])}</span>`;
+			return `<span class="syntax">${headingMatch[1]} </span><span class="${sizes[level]}">${highlightInline(headingMatch[2])}</span>`;
 		}
 
-		if (/^---$/.test(line)) return `<span class="syntax text-muted-foreground">${escaped}</span>`;
+		if (/^---$/.test(line)) {
+			return `<span class="syntax">${escaped}</span><span class="block border-t border-border my-2"></span>`;
+		}
 
-		if (/^> /.test(line)) {
+		if (/^> (.*)$/.test(line)) {
 			const text = line.replace(/^> /, '');
-			return `<span class="syntax text-muted-foreground/50">&gt; </span><span class="italic text-muted-foreground border-l-2 pl-2 border-muted-foreground/30">${highlightInline(text)}</span>`;
+			return `<span class="syntax">&gt; </span><span class="border-l-2 border-muted-foreground/30 pl-3 text-muted-foreground italic">${highlightInline(text)}</span>`;
 		}
 
-		if (/^- /.test(line)) {
-			return `<span class="syntax text-muted-foreground/50">- </span><span>${highlightInline(line.substring(2))}</span>`;
+		if (/^> $/.test(line) || line === '>') {
+			return `<span class="syntax">&gt; </span><span class="border-l-2 border-muted-foreground/30 pl-3"></span>`;
 		}
 
-		if (/^\d+\. /.test(line)) {
-			const match = line.match(/^(\d+\.) (.*)$/);
-			return match
-				? `<span class="syntax text-muted-foreground/50">${match[1]} </span><span>${highlightInline(match[2])}</span>`
-				: escaped;
+		const bulletMatch = line.match(/^- (.+)$/);
+		if (bulletMatch) {
+			return `<span class="syntax">- </span><span class="inline-flex items-baseline gap-2"><span class="text-muted-foreground" contenteditable="false">•</span><span>${highlightInline(bulletMatch[1])}</span></span>`;
 		}
 
-		if (/^```/.test(line))
-			return `<span class="syntax font-mono text-xs text-muted-foreground">${escaped}</span>`;
+		if (line === '- ') {
+			return `<span class="syntax">- </span><span class="inline-flex items-baseline gap-2"><span class="text-muted-foreground" contenteditable="false">•</span><span></span></span>`;
+		}
+
+		const numberedMatch = line.match(/^(\d+)\. (.*)$/);
+		if (numberedMatch) {
+			return `<span class="syntax">${numberedMatch[1]}. </span><span class="inline-flex items-baseline gap-2"><span class="text-muted-foreground tabular-nums" contenteditable="false">${numberedMatch[1]}.</span><span>${highlightInline(numberedMatch[2])}</span></span>`;
+		}
+
+		const emptyNumbered = line.match(/^(\d+)\. $/);
+		if (emptyNumbered) {
+			return `<span class="syntax">${emptyNumbered[1]}. </span><span class="inline-flex items-baseline gap-2"><span class="text-muted-foreground tabular-nums" contenteditable="false">${emptyNumbered[1]}.</span><span></span></span>`;
+		}
+
+		if (/^```/.test(line)) {
+			return `<span class="syntax">${escaped}</span>`;
+		}
 
 		return highlightInline(escaped);
 	}
@@ -108,19 +123,19 @@
 	function highlightInline(text: string): string {
 		text = text.replace(
 			/(\*\*\*)(.+?)(\*\*\*)/g,
-			'<span class="syntax text-muted-foreground/40">$1</span><strong class="font-bold italic">$2</strong><span class="syntax text-muted-foreground/40">$3</span>'
+			'<span class="syntax">$1</span><strong class="font-bold italic">$2</strong><span class="syntax">$3</span>'
 		);
 		text = text.replace(
 			/(\*\*)(.+?)(\*\*)/g,
-			'<span class="syntax text-muted-foreground/40">$1</span><strong class="font-semibold">$2</strong><span class="syntax text-muted-foreground/40">$3</span>'
+			'<span class="syntax">$1</span><strong class="font-semibold">$2</strong><span class="syntax">$3</span>'
 		);
 		text = text.replace(
 			/(?<!\*)(\*)([^*]+?)(\*)(?!\*)/g,
-			'<span class="syntax text-muted-foreground/40">$1</span><em class="italic">$2</em><span class="syntax text-muted-foreground/40">$3</span>'
+			'<span class="syntax">$1</span><em class="italic">$2</em><span class="syntax">$3</span>'
 		);
 		text = text.replace(
 			/(`)([^`]+?)(`)/g,
-			'<span class="syntax text-muted-foreground/40">$1</span><code class="bg-muted px-1 py-0.5 rounded text-sm font-mono text-primary">$2</code><span class="syntax text-muted-foreground/40">$3</span>'
+			'<span class="syntax">$1</span><code class="bg-muted px-1 py-0.5 rounded text-sm font-mono text-primary">$2</code><span class="syntax">$3</span>'
 		);
 		return text;
 	}
@@ -233,6 +248,14 @@
 		selection.addRange(range);
 	}
 
+	function getCurrentLine(text: string, pos: number): { line: string; lineStart: number } {
+		const before = text.substring(0, pos);
+		const lineStart = before.lastIndexOf('\n') + 1;
+		const lineEnd = text.indexOf('\n', pos);
+		const line = text.substring(lineStart, lineEnd === -1 ? text.length : lineEnd);
+		return { line, lineStart };
+	}
+
 	function insertCommand(cmd: (typeof commands)[0]) {
 		const pos = slashStartIndex;
 		const before = value.substring(0, pos);
@@ -322,15 +345,53 @@
 		if (e.key === 'Enter') {
 			e.preventDefault();
 			const pos = getCaretPosition(editorEl);
-			const before = value.substring(0, pos);
-			const after = value.substring(pos);
+			const { line, lineStart } = getCurrentLine(value, pos);
+
+			const bulletMatch = line.match(/^- (.*)$/);
+			const numberedMatch = line.match(/^(\d+)\. (.*)$/);
+			const quoteMatch = line.match(/^> (.*)$/);
+
+			let newLinePrefix = '';
+			let shouldClearLine = false;
+
+			if (bulletMatch) {
+				if (bulletMatch[1] === '') {
+					shouldClearLine = true;
+				} else {
+					newLinePrefix = '- ';
+				}
+			} else if (numberedMatch) {
+				if (numberedMatch[2] === '') {
+					shouldClearLine = true;
+				} else {
+					const nextNum = parseInt(numberedMatch[1]) + 1;
+					newLinePrefix = `${nextNum}. `;
+				}
+			} else if (quoteMatch) {
+				if (quoteMatch[1] === '') {
+					shouldClearLine = true;
+				} else {
+					newLinePrefix = '> ';
+				}
+			}
 
 			isInternalUpdate = true;
-			value = before + '\n' + after;
-			editorEl.innerHTML = highlightMarkdown(value);
-			setCaretPosition(editorEl, pos + 1);
 
-			if (enableSlashCommands) checkSlashCommand(value, pos + 1);
+			if (shouldClearLine) {
+				const before = value.substring(0, lineStart);
+				const after = value.substring(pos);
+				value = before + after;
+				editorEl.innerHTML = highlightMarkdown(value);
+				setCaretPosition(editorEl, lineStart);
+			} else {
+				const before = value.substring(0, pos);
+				const after = value.substring(pos);
+				value = before + '\n' + newLinePrefix + after;
+				editorEl.innerHTML = highlightMarkdown(value);
+				setCaretPosition(editorEl, pos + 1 + newLinePrefix.length);
+			}
+
+			if (enableSlashCommands) checkSlashCommand(value, getCaretPosition(editorEl));
 			tick().then(() => (isInternalUpdate = false));
 		}
 	}
@@ -409,3 +470,17 @@
 		{/each}
 	</div>
 {/if}
+
+<style>
+	:global(.syntax) {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+</style>

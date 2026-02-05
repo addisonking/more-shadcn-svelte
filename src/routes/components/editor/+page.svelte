@@ -17,9 +17,9 @@
 				<div class="w-full max-w-2xl mx-auto p-4">
 					<Editor
 						value={`# WelcomeType
-						**bold**, *italic* ,or \`code\` and see it render inline.
-						- List items work too
-						- Just like this`}
+**bold**, *italic* ,or \`code\` and see it render inline.
+- List items work too
+- Just like this`}
 					/>
 				</div>
 			</DocPage.Preview>

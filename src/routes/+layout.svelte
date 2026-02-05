@@ -73,7 +73,8 @@
 					icon: SquareChevronDown,
 					new: true
 				},
-				{ href: '/components/editor', label: 'Editor', icon: NotebookPen, new: true },
+				// IN WORKS
+				// { href: '/components/editor', label: 'Editor', icon: NotebookPen, new: true },
 				{
 					href: '/components/hold-button',
 					label: 'Hold Button',
